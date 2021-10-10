@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+// template + logic
+// JSX
+//babel
+
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
