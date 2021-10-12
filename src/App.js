@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Nav from './views/Nav.js';
 
 // template + logic
 // JSX
@@ -13,7 +14,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {console.log('check obj: ', obj)}
+      <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and {name}!</h1>
