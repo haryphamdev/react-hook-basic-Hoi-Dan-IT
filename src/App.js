@@ -6,11 +6,12 @@ import Nav from './views/Nav.js';
 // JSX
 //babel
 
-const App = () => {
+const App = () => { //class
   let name = 'Eric'; //string
-  let number = 2021;
-  let obj = { name: 'ERic', channel: 'Hoi Dan IT' };
-  let link = 'https://www.youtube.com/watch?v=frVHVZDpsp4&list=PLncHg6Kn2JT4xzJyhXfmJ53dzwVbq-S_E';
+
+  const handleEventClick = (event) => {
+    console.log('>>> click me', event.target.value)
+  }
 
   return (
     <div className="App">
@@ -18,11 +19,10 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and {name}!</h1>
-        <p style={{ color: 'red', fontSize: '20px', marginTop: '15px' }}>{JSON.stringify(obj)}</p>
-        <a href={link} target="_blank"  >Visit my channel</a>
+        <input type="text" value="Eric" onClick={(event) => handleEventClick(event)} />
+        <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
       </header>
     </div>
-
   );
 }
 
