@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav.js';
 import { useState } from 'react';
+import Todo from './views/Todo';
+
 
 // template + logic
 // JSX
@@ -42,15 +44,10 @@ const App = () => { //class
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and {name}!</h1>
-        <div className="todos-container">
-          {todos.map(todo => {
-            console.log('>>> check todo list: ', todo)
-            return (
-              <li className="todo-child" key={todo.id}> {todo.title}</li>
-            )
-          })}
-
-        </div>
+        <Todo
+          todos={todos}
+          title={'All todos'}
+        />
         <input type="text" value={address} onChange={(event) => handleOnchangeInput(event)} />
         <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
       </header>
