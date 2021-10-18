@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 
 
@@ -21,6 +21,10 @@ const App = () => { //class
     { id: 'todo4', title: 'Reading books', type: 'hoidanit' }
   ]);
 
+  useEffect(() => {
+    setAddress('addd')
+    console.log('run use effect')
+  });
 
   const handleEventClick = (event) => {
     if (!address) {
