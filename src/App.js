@@ -21,10 +21,15 @@ const App = () => { //class
     { id: 'todo4', title: 'Reading books', type: 'hoidanit' }
   ]);
 
+  //didmount
   useEffect(() => {
-    setAddress('addd')
     console.log('run use effect')
-  });
+  }, [address]);
+
+  useEffect(() => {
+    console.log('run use effect todos')
+  }, [todos]);
+
 
   const handleEventClick = (event) => {
     if (!address) {
