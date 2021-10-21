@@ -5,10 +5,12 @@ import moment from 'moment';
 const Covid = () => {
 
     const [dataCovid, setDataCovid] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+
     // componentDidMount
     useEffect(async () => {
-        setTimeout(async () => {
+        try {
             let res = await axios.get('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-10-20T00:00:00Z')
             let data = (res && res.data) ? res.data : []; // true, false
             if (data && data.length > 0) {
@@ -16,12 +18,16 @@ const Covid = () => {
                     item.Date = moment(item.Date).format('DD/MM/YYYY');
                     return item;
                 })
-
                 data = data.reverse()
             }
             setDataCovid(data);
-            setLoading(false);
-        }, 3000)
+            setIsLoading(false);
+            setIsError(false);
+        }
+        catch (e) {
+            setIsError(true);
+            setIsLoading(false);
+        }
 
     }, []);
 
@@ -41,7 +47,7 @@ const Covid = () => {
                 <tbody>
 
 
-                    {loading === false && dataCovid && dataCovid.length > 0 &&
+                    {isError === false && isLoading === false && dataCovid && dataCovid.length > 0 &&
                         dataCovid.map(item => {
                             return (
                                 <tr key={item.ID}>
@@ -55,9 +61,16 @@ const Covid = () => {
                         })
                     }
 
-                    {loading === true
+                    {isLoading === true
                         && <tr >
                             <td colSpan='5' style={{ 'textAlign': 'center' }}>  Loading...</td>
+                        </tr>
+                    }
+
+
+                    {isError === true
+                        && <tr >
+                            <td colSpan='5' style={{ 'textAlign': 'center' }}>  Something wrong... </td>
                         </tr>
                     }
 
