@@ -4,6 +4,7 @@ import Nav from './views/Nav.js';
 import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
+import { CountDown, NewCountDown } from './views/Countdown';
 
 // template + logic
 // JSX
@@ -56,6 +57,10 @@ const App = () => { //class
     currentTodos = currentTodos.filter(item => item.id !== id)
     setTodos(currentTodos)
   }
+
+  const onTimesup = () => {
+    alert('times up')
+  }
   //re-render
   //for for-each => map
   return (
@@ -64,6 +69,11 @@ const App = () => { //class
       <header className="App-header">
         <Nav />
         <img src={logo} className="App-logo" alt="logo" />
+        <CountDown onTimesup={onTimesup} />
+        <span>---------------------</span>
+        <NewCountDown onTimesup={onTimesup} />
+
+
         <h1>Hello world with React and {name}!</h1>
         <Covid />
         {/* <Todo
