@@ -8,7 +8,7 @@ const Covid = () => {
 
     const { data: dataCovid, isLoading, isError }
         // = useFetch('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-10-20T00:00:00Z')
-        = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`)
+        = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`, true)
 
 
     return (
