@@ -6,7 +6,18 @@ const AddNewBlog = () => {
     const [content, setContent] = useState('');
 
     const handleSubmitBtn = () => {
-        console.log('>>>> check data state: ', title, content)
+        // if (title === '' || title === null  || title === undefined) alert('empty title')
+        if (!title) {
+            alert('empty title');
+            return;
+        }
+        if (!content) {
+            alert('empty content')
+            return;
+        }
+
+        console.log('>>> check data before send >>> title:', title, ' content: ', content)
+
     }
     return (
         <div className="add-new-container">
