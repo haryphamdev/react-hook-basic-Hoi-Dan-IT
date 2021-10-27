@@ -25,3 +25,15 @@
         }
     }
 }
+
+.blog-detail {
+    border       : 1px solid grey;
+    padding      : 10px;
+    border-radius: 3px;
+    margin       : 10px;
+    min-height   : 100px;
+
+    .content {
+        padding-top: 10px;
+    }
+}
