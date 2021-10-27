@@ -28,7 +28,7 @@ const Blog = () => {
             })}
 
             {isLoading === true &&
-                <div style={{ textAlign: 'center !important' }}>Loading data...</div>
+                <div style={{ textAlign: 'center !important', width: '100%' }}>Loading data...</div>
             }
         </div>
 
